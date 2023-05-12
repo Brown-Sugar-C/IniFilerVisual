@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<SyntaxDefinition name="Ra2IniRule" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment" foreground="Green" />
+	<Color name="Key" foreground="#4169E1"/>
+	<Color name="SectionSymbol" foreground="Orange"/>
+	<Color name="SpecialSymbol" foreground="#A020F0"/>
+	<Color name="IgnoreValue" foreground="#CCCCCC"/>
+
+	<!-- This is the main ruleset. -->
+	<RuleSet>
+		<Keywords color="SpecialSymbol">
+			<Word>#include</Word>
+		</Keywords>
+		<Keywords color="IgnoreValue">
+			<Word>&lt;all&gt;</Word>
+			<Word>&lt;none&gt;</Word>
+		</Keywords>
+		
+		
+		<Span color="IgnoreValue">
+			<Begin>(?=\d{10})0{54}\s{0,},</Begin>
+			<End></End>
+		</Span>
+		<Span color="Comment" begin=";"/>
+		<Span color="Key">
+			<Begin>^[^(\[|;)].*?(?==)</Begin>
+			<End></End>
+		</Span>
+		<Keywords color="SectionSymbol">
+			<Word>[</Word>
+			<Word>]</Word>
+		</Keywords>
+		<Keywords color="SpecialSymbol">
+			<Word>(</Word>
+			<Word>)</Word>
+		</Keywords>
+		
+		
+	</RuleSet>
+</SyntaxDefinition>
